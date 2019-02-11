@@ -1,0 +1,41 @@
+<html>
+<head>
+<style type="text/css">
+body{
+background-color:black;
+}
+#box1{
+background-color:blue;
+margin:10;
+padding:10;
+font: 30px Arial,sans-serif;
+color:green;
+}
+</style>
+</head>
+<body onload="startRelogio()">
+<title>contador</title>
+<a style="color:Red" href="main.html">Voltar a Página Principal</a>
+<div id="box1">
+<p>Relogio[<span id="time"></span>]</p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function startRelogio(){
+ var tempo=new Date();
+ var h=tempo.getHours();
+ var m=tempo.getMinutes();
+ var s=tempo.getSeconds();
+ m=check_tempo(m);
+ s=check_tempo(s);
+ document.getElementById("time").innerHTML=h+":"+m+":"+s;
+ t=setTimeout("startRelogio()",500);
+ }
+ function check_tempo(i){
+  if(i<10){
+  i="0"+i
+  }
+  return i;
+  }
+</script>
